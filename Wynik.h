@@ -9,14 +9,14 @@
 using namespace std;
 
 class Wynik {
-	Gracz *tabKolejnosc;
+	Gracz **tabKolejnosc;
+	int ileGraczy;
 public:
-	Wynik();
+	Wynik(Gracz **tabKolejnosc, int ileGraczy);
 	void ustalMiejsca();
 	void ustalPodium();
+
 	void wypisz();
 };
 
 #endif
-
-//POTRZEBNA ILOSC PUNKTOW 

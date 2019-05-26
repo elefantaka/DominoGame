@@ -15,6 +15,8 @@ public:
 	StolDoDoboru();
 	void dodajPozostalePionki(Pionek tabPionkow[], int ileDoStoluDoDoboru);
 	void drukuj();
+	Pionek dajPionek();
+	bool czyPustyStol();
 };
 
 #endif

@@ -4,10 +4,12 @@
 class Pionek {
 	int a;
 	int b;
-
 public:
 	Pionek(int ap, int bp); //konstruktor
 	void drukuj();
+	void odwrocPionka();
+	int getA();
+	int getB();
 	~Pionek(); //destruktor pionka
 	Pionek();
 };

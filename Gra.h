@@ -13,7 +13,7 @@ class Gra {
 	PudelkoPionkow pp;
 	StolDoDoboru stoldd; //stol do doboru
 	Gracz *tabGraczy[28]; //tablica graczy
-	LiniaNaStole linia;
+	LiniaNaStole *linia; //wskaznik do linii na stole, ktora powinna byc tylko jedna
 	int ileGraczy; //ilosc graczy
 public:
 	Gra();

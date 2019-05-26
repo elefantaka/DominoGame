@@ -28,6 +28,21 @@ Pionek::~Pionek() {
 	//cout << "Destruktor Pionek: usuwa: " << "{" << a << "," << b << "}" << endl;
 }
 
+void Pionek::odwrocPionka() {
+	int temp; 
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+int Pionek::getA() {
+	return a;
+}
+
+int Pionek::getB() {
+	return b;
+}
+
 const int PudelkoPionkow::N = 28;
 
 PudelkoPionkow::PudelkoPionkow() {

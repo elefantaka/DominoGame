@@ -1,3 +1,6 @@
+#ifndef LiniaNaStole_H
+#define LiniaNaStole_H
+
 #include "Pionek.h"
 
 #include <iostream>
@@ -15,7 +18,14 @@ class LiniaNaStole {
 	Element *glowa;
 public:
 	LiniaNaStole();
-	void dodajPoLewej(Pionek p);
-	void dodajPoPrawej(Pionek p);
+	bool dodajPoLewej(Pionek p);
+	bool dodajPoPrawej(Pionek p);
+	bool wolnoDodacPoPrawej(Pionek p);
+	bool wolnoDodacPoLewej(Pionek p);
+	int pokazLewyKoniec();
+	int pokazPrawyKoniec();
+	bool czyLiniaPusta();
 	void drukuj();
 };
+
+#endif

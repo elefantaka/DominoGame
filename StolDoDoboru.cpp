@@ -33,3 +33,27 @@ void StolDoDoboru::drukuj() {
 	}
 	cout << endl;
 }
+
+bool StolDoDoboru::czyPustyStol() {
+	if (poczatek == -1) {
+		return true;  //stol jest pusty
+	}
+	else if (poczatek > koniec) {
+		return true;
+	}
+	else {
+		return false;  //stol nie jest pusty
+	}
+}
+
+Pionek StolDoDoboru::dajPionek() {
+	if (czyPustyStol() == true) {
+		Pionek p(-1, -1);
+		return p;
+	}
+	else {
+		Pionek p = tab[poczatek];
+		poczatek++;
+		return p;
+	}
+}
