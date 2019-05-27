@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 
+
 using namespace std;
 
 class Wynik {
@@ -14,9 +15,8 @@ class Wynik {
 public:
 	Wynik(Gracz **tabKolejnosc, int ileGraczy);
 	void ustalMiejsca();
-	void ustalPodium();
-
 	void wypisz();
+	friend ostream& operator<< (ostream& os, const Wynik &W);
 };
 
 #endif

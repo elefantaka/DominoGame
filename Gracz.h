@@ -11,7 +11,7 @@ using namespace std;
 
 class Gracz {
 protected:
-	Pionek *wlasne;
+	Pionek *wlasne; //wlasne pionki
 	int ileWlasnych;
 	string imie;
 	LiniaNaStole *linia; //wskaznik na linie na stole
@@ -30,6 +30,8 @@ public:
 	int getIleWlasnych();
 	void setMiejsce(int noweMiejsce);
 	int getMiejsce();
+	string getImie();
+	Pionek getPionek(int pionek);
 	void zakoncz(); //ustawienie juz skonczyl na true
 	bool getJuzSkonczyl();
 	virtual bool ruch() = 0; //virtual - metoda sie zmienia w podklasach

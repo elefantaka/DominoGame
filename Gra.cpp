@@ -1,9 +1,11 @@
 #include "Gra.h"
 #include "Gracz.h"
 #include "Wynik.h"
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <fstream>
 
 using namespace std;
 
@@ -44,8 +46,20 @@ void Gra::rozgrywka() {
 	rozdajPionki();
 	drukuj();
 	wykladaniePionkow();
-	Wynik w(tabGraczy, ileGraczy);
-	w.wypisz();
+	Wynik wynik(tabGraczy, ileGraczy);
+	cout << wynik;
+	cout << "Czy zapisac wynik do pliku? 0 - nie, 1 - tak" << endl;
+	int opcja;
+	cin >> opcja;
+	if (opcja == 1) {
+		cout << "Zapisuje wynik do pliku Wynik.txt" << endl;
+		ofstream plik("Wynik.txt");
+		plik << wynik;
+		plik.close(); //zamykanie pliku
+	}
+	else {
+		return;
+	}
 }
 
 void Gra::tworzGraczy() {
@@ -64,7 +78,7 @@ void Gra::tworzGraczy() {
 	}
 	for (int i = 0; i < ileOsob; i++) {
 		tabGraczy[i] = new GraczOsoba;
-		cout << "Podaj imie gracza:" << i << endl;
+		//cout << "Podaj imie gracza:" << i << endl;
 		tabGraczy[i]->wczytajImie(i);
 	}
 
@@ -107,12 +121,12 @@ void Gra::wykladaniePionkow() {
 			if (tabGraczy[aktualnyGracz]->getIleWlasnych() == 0) {
 				tabGraczy[aktualnyGracz]->zakoncz();
 				tabGraczy[aktualnyGracz]->setMiejsce(numerMiejsca);
-				cout << "Gracz zakonczy gre na miejscu:" << numerMiejsca << endl;
+				cout << "Gracz zakonczy gre na miejscu: " << numerMiejsca << endl;
 				numerMiejsca++;
 			}
 		}
 		else {
-			cout << "Omijamy wygraczegi gracza";
+			cout << "Omijamy wygranego gracza.";
 			tabGraczy[aktualnyGracz]->drukuj();
 			licznikNieaktywanychGraczy++;
 		}
@@ -129,8 +143,6 @@ void Gra::wykladaniePionkow() {
 	}
 
 }
-
-
 
 void Gra::drukuj() {
 	for (int i = 0; i < ileGraczy; i++) {

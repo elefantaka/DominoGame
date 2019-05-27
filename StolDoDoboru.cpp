@@ -1,5 +1,6 @@
 #include "Pionek.h"
 #include "StolDoDoboru.h"
+
 #include <iostream>
 #include <string>
 
@@ -24,14 +25,14 @@ void StolDoDoboru::dodajPozostalePionki(Pionek tabPionkow[], int ileDoStoluDoDob
 void StolDoDoboru::drukuj() {
 	cout << "Stol do doboru: ";
 	if (poczatek == -1) {
-		cout << "Stol do doboru jest pusty ";
+		cout << "Stol do doboru jest pusty";
 	}
 	else {
 		for (int i = poczatek; i <= koniec; i++) {
 			tab[i].drukuj();
 		}
 	}
-	cout << endl;
+	cout << endl << endl;
 }
 
 bool StolDoDoboru::czyPustyStol() {

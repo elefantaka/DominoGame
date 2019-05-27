@@ -34,13 +34,27 @@ void Wynik::ustalMiejsca() {
 	}
 }
 
-void Wynik::ustalPodium() {
-
-}
-
 void Wynik::wypisz() {
-	cout << "Gra zakoczona. Wyniki: " << endl;
+	cout << endl << "Gra zakoczona. Wyniki: " << endl;
 	for (int i = 0; i < ileGraczy; i++) {
 		tabKolejnosc[i]->drukujMiejsce();
 	}
+}
+
+ostream& operator<<(ostream& os, const Wynik &W) {
+	os << endl << "Gra zakoczona. Wyniki: " << endl;
+	for (int i = 0; i < W.ileGraczy; i++) {
+		Gracz *g = W.tabKolejnosc[i];
+		os << "Gracz " << g->getImie() << "miejsce " << g->getMiejsce() << ": "; 
+		if (g->getIleWlasnych() == 0) {
+			os << "Gracz nie posiada pionkow";
+		}
+		else {
+			for (int i = 0; i < g->getIleWlasnych(); i++) {
+				os << "{" << g->getPionek(i).getA() << "," << g->getPionek(i).getB() << "}"; 
+			}
+		}
+		cout << endl;
+	}
+	return os;
 }

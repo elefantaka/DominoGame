@@ -1,5 +1,6 @@
 #include "Gracz.h"
 #include "LiniaNaStole.h"
+
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -35,7 +36,7 @@ void Gracz::drukuj() {
 }
 
 void Gracz::drukujMiejsce() {
-	cout << "Gracz " << imie << "miejsce " << miejsce << ":";
+	cout << "Gracz " << imie << "miejsce " << miejsce << ": ";
 	if (ileWlasnych == 0) {
 		cout << "Gracz nie posiada pionkow";
 	}
@@ -53,6 +54,14 @@ int Gracz::getIleWlasnych() {
 
 void Gracz::setMiejsce(int noweMiejsce) {
 	miejsce = noweMiejsce;
+}
+
+string Gracz::getImie() {
+	return imie;
+}
+
+Pionek Gracz::getPionek(int pionek) {
+	return *wlasne;
 }
 
 void Gracz::zakoncz() {
@@ -73,7 +82,7 @@ int Gracz::getMiejsce() {
 }
 
 void GraczOsoba::wczytajImie(int numerGracza) {
-	cout << "Podaj imie gracza nr" << numerGracza << endl;
+	cout << "Podaj imie gracza nr " << numerGracza << endl;
 	cin >> imie;
 }
 
@@ -109,14 +118,14 @@ bool GraczOsoba::ruch() {
 	if (lewoPrawo == 0) {
 		bool czyDodal = linia->dodajPoLewej(wlasne[numer]);
 		if (czyDodal == false) {
-			cout << "tracisz kolejke" << endl;
+			cout << "Tracisz kolejke" << endl;
 			return false;
 		}
 	}
 	else if (lewoPrawo == 1) {
 		bool czyDodal = linia->dodajPoPrawej(wlasne[numer]);
 		if (czyDodal == false) {
-			cout << "tracisz kolejke" << endl;
+			cout << "Tracisz kolejke" << endl;
 			return false;
 		}
 	}
@@ -172,7 +181,7 @@ bool GraczKomputer::ruch() {
 			return true;
 		}
 	}
-	cout << "tracisz kolejke" << endl;
+	cout << "Tracisz kolejke" << endl;
 	return false;
 }
 
