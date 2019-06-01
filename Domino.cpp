@@ -16,7 +16,7 @@ int main() {
 	while (koniec == 0) {
 		Gra  gra;
 		gra.rozgrywka();
-		cout << "Czy zaknczyc gre 0 - nie, 1 - tak" << endl;
+		cout << "Czy zakonczyc gre 0 - nie, 1 - tak" << endl;
 		cin >> koniec;
 	}
 

@@ -67,11 +67,11 @@ void Gra::tworzGraczy() {
 	cout << "Podaj liczbe graczy." << endl;
 	cin >> ileGraczy;
 	if (ileGraczy < 0 || ileGraczy > 28) {
-		cout << "Niepoprawna ilosc graczy" << endl;
+		cout << "Niepoprawna liczba graczy" << endl;
 		ileGraczy = 0;
 		return;
 	}
-	cout << "Podaj ilosc osob" << endl;
+	cout << "Podaj liczbe osob." << endl;
 	cin >> ileOsob;
 	if (ileOsob > ileGraczy) {
 		ileOsob = ileGraczy;
@@ -105,7 +105,7 @@ void Gra::wykladaniePionkow() {
 				bool czyDodaldoLinii = tabGraczy[aktualnyGracz]->ruch(pionkiPrzeciwnika);
 				if ((czyDodaldoLinii == false) && (stoldd.czyPustyStol() == false)) {
 					Pionek p = stoldd.dajPionek();  //daj pionek
-					tabGraczy[aktualnyGracz]->dobierzPionek(p);  //brakuje ddobierz pionek
+					tabGraczy[aktualnyGracz]->dobierzPionek(p);  
 					licznikNieaktywanychGraczy = 0;
 				}
 				else { //nie dobral pionka
