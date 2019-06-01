@@ -101,7 +101,8 @@ void Gra::wykladaniePionkow() {
 		if (tabGraczy[aktualnyGracz]->getJuzSkonczyl() == false) {
 			bool koniecRuchu = false;
 			while (koniecRuchu == false) {
-				bool czyDodaldoLinii = tabGraczy[aktualnyGracz]->ruch();
+				Zbior<int> pionkiPrzeciwnika = tabGraczy[(aktualnyGracz + 1) % ileGraczy]->dajMojeNumery();
+				bool czyDodaldoLinii = tabGraczy[aktualnyGracz]->ruch(pionkiPrzeciwnika);
 				if ((czyDodaldoLinii == false) && (stoldd.czyPustyStol() == false)) {
 					Pionek p = stoldd.dajPionek();  //daj pionek
 					tabGraczy[aktualnyGracz]->dobierzPionek(p);  //brakuje ddobierz pionek

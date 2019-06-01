@@ -10,10 +10,15 @@ int main() {
 	cout << "Gra domino." << endl;
 	cout << "Autor: Renata Wietrzynska" << endl;
 	cout << "Zapraszam do zabawy :)" << endl << endl;
+	
+	int koniec = 0;
 
-	Gra  gra;
-
-	gra.rozgrywka();
+	while (koniec == 0) {
+		Gra  gra;
+		gra.rozgrywka();
+		cout << "Czy zaknczyc gre 0 - nie, 1 - tak" << endl;
+		cin >> koniec;
+	}
 
 	cout << endl <<"Koniec programu." << endl;
 	return 0;

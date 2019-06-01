@@ -42,7 +42,7 @@ void Wynik::wypisz() {
 }
 
 ostream& operator<<(ostream& os, const Wynik &W) {
-	os << endl << "Gra zakoczona. Wyniki: " << endl;
+	os << "Gra zakoczona. Wyniki: " << endl;
 	for (int i = 0; i < W.ileGraczy; i++) {
 		Gracz *g = W.tabKolejnosc[i];
 		os << "Gracz " << g->getImie() << "miejsce " << g->getMiejsce() << ": "; 
@@ -54,7 +54,7 @@ ostream& operator<<(ostream& os, const Wynik &W) {
 				os << "{" << g->getPionek(i).getA() << "," << g->getPionek(i).getB() << "}"; 
 			}
 		}
-		cout << endl;
+		os << endl;
 	}
 	return os;
 }

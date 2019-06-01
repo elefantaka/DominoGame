@@ -97,7 +97,7 @@ void Gracz::ustawLinieNaStole(LiniaNaStole *linia2) {
 	this->linia = linia2; //ustawiamy linie, zapamietujemy wskaznik do tej linii
 }
 
-bool GraczOsoba::ruch() {
+bool GraczOsoba::ruch(Zbior<int> pionkiPrzeciwnika) {
 	int numer;
 	cout << "Ruch gracza " << imie << endl;
 	cout << "Podaj nr pionka" << endl;
@@ -143,7 +143,7 @@ void GraczKomputer::wczytajImie(int numerGracza) {
 	imie = napis.str();
 }
 
-bool GraczKomputer::ruch() {
+bool GraczKomputer::ruch(Zbior<int> pionkiPrzeciwnika) {
 	cout << "Ruch gracza " << imie << endl;
 	if (ileWlasnych == 0) {
 		cout << "Gracz juz wygral" << endl;
@@ -156,6 +156,40 @@ bool GraczKomputer::ruch() {
 	}
 	int lewyKoniec = linia->pokazLewyKoniec();
 	int prawyKoniec = linia->pokazPrawyKoniec();
+	//szuka lepszego pionka przy uzyciu zbioru czyli szablonu
+	for (int i = 0; i < ileWlasnych; i++) {
+		Pionek p = wlasne[i];
+		if (lewyKoniec == p.getA()) {
+			if (pionkiPrzeciwnika.czyNalezy(p.getB()) == false) {
+				p.odwrocPionka();
+				linia->dodajPoLewej(p);
+				usunPionek(i);
+				return true;
+			}
+		}
+		if (lewyKoniec == p.getB()) {
+			if (pionkiPrzeciwnika.czyNalezy(p.getA()) == false) {
+				linia->dodajPoLewej(p);
+				usunPionek(i);
+				return true;
+			}
+		}
+		if (prawyKoniec == p.getA()) {
+			if (pionkiPrzeciwnika.czyNalezy(p.getB()) == false) {
+				linia->dodajPoPrawej(p);
+				usunPionek(i);
+				return true;
+			}
+		}
+		if (prawyKoniec == p.getB()) {
+			if (pionkiPrzeciwnika.czyNalezy(p.getA()) == false) {
+				p.odwrocPionka();
+				linia->dodajPoPrawej(p);
+				usunPionek(i);
+				return true;
+			}
+		}
+	}
 	for (int i = 0; i < ileWlasnych; i++) {
 		Pionek p = wlasne[i];
 		if (lewyKoniec == p.getA()) {
@@ -188,4 +222,13 @@ bool GraczKomputer::ruch() {
 void Gracz::dobierzPionek(Pionek p) {
 	wlasne[ileWlasnych] = p;
 	ileWlasnych++;
+}
+
+Zbior<int> Gracz::dajMojeNumery() {
+	Zbior<int> wynikZbioru(7);
+	for (int i = 0; i < ileWlasnych; i++) {
+		wynikZbioru.dodaj(wlasne[i].getA());
+		wynikZbioru.dodaj(wlasne[i].getB());
+	}
+	return wynikZbioru;
 }
