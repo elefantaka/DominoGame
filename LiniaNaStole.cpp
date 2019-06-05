@@ -10,6 +10,8 @@ LiniaNaStole::LiniaNaStole() {
 	glowa = NULL;
 }
 
+//dodawanie pionka po lewej
+
 bool LiniaNaStole::dodajPoLewej(Pionek p) {
 	if (wolnoDodacPoLewej(p) == false) {
 		cout << "Niepoprawny ruch" << endl;
@@ -21,6 +23,8 @@ bool LiniaNaStole::dodajPoLewej(Pionek p) {
 	glowa = nowy;
 	return true;
 }
+
+//dodawanie pionka po prawej
 
 bool LiniaNaStole::dodajPoPrawej(Pionek p) {
 	if (wolnoDodacPoPrawej(p) == false) {
@@ -44,6 +48,8 @@ bool LiniaNaStole::dodajPoPrawej(Pionek p) {
 	return true;
 }
 
+//sprawdzenie czy wolno dodac pionka po lewej
+
 bool LiniaNaStole::wolnoDodacPoLewej(Pionek p) {
 	if (glowa == NULL) {
 		return true;
@@ -56,6 +62,8 @@ bool LiniaNaStole::wolnoDodacPoLewej(Pionek p) {
 		return false;
 	}
 }
+
+//sprawdzenie czy wolno dodac pionka po prawej
 
 bool LiniaNaStole::wolnoDodacPoPrawej(Pionek p) {
 	if (glowa == NULL) {
@@ -107,6 +115,8 @@ bool LiniaNaStole::czyLiniaPusta() {
 		return false;
 	}
 }
+
+//drukowanie pionkow, ktore sa na linii na stole
 
 void LiniaNaStole::drukuj() {
 	if (glowa == NULL) {

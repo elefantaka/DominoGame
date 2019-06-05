@@ -8,7 +8,7 @@
 using namespace std;
 
 class StolDoDoboru {
-	Pionek *tab;
+	Pionek *tab; //tablica pionkow
 	int poczatek;
 	int koniec;
 public:

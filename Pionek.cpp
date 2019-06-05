@@ -70,6 +70,8 @@ PudelkoPionkow::~PudelkoPionkow() {
 	tab = NULL;
 }
 
+//mieszanie pionkow gracza
+
 void PudelkoPionkow::mieszaj() {
 	for (int i = 0; i < 100; i++) {
 		int indeks1, indeks2;

@@ -12,6 +12,8 @@ Wynik::Wynik(Gracz **tabKolejnosc, int ileGraczy) {
 	ustalMiejsca();
 }
 
+//ustalenie miejsc graczy
+
 void Wynik::ustalMiejsca() {
 	for (int i = 0; i < ileGraczy; i++) {
 		for (int j = 0; j < (ileGraczy - 1); j++) {
@@ -40,6 +42,8 @@ void Wynik::wypisz() {
 		tabKolejnosc[i]->drukujMiejsce();
 	}
 }
+
+//zapisanie wynikow do pliku Wynik.txt
 
 ostream& operator<<(ostream& os, const Wynik &W) {
 	os << "Gra zakoczona. Wyniki: " << endl;

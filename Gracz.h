@@ -12,7 +12,7 @@ using namespace std;
 
 class Gracz {
 protected:
-	Pionek *wlasne; //wlasne pionki
+	Pionek *wlasne; //wlasne pionki, kazdego gracza
 	int ileWlasnych;
 	string imie;
 	LiniaNaStole *linia; //wskaznik na linie na stole
@@ -41,14 +41,14 @@ public:
 
 class GraczKomputer : public Gracz {  //dziedziczenie
 public:
-	bool ruch(Zbior<int> pionkiPrzeciwnika);
-	void wczytajImie(int numerGracza);
+	bool ruch(Zbior<int> pionkiPrzeciwnika);  //polimorfizm
+	void wczytajImie(int numerGracza);  //polimorfizm
 };
 
-class GraczOsoba : public Gracz {
+class GraczOsoba : public Gracz { //dziedziczenie
 public:
-	bool ruch(Zbior<int> pionkiPrzeciwnika);
-	void wczytajImie(int numerGracza);
+	bool ruch(Zbior<int> pionkiPrzeciwnika);  //polimorfizm
+	void wczytajImie(int numerGracza);  //polimorfizm
 };
 
 #endif

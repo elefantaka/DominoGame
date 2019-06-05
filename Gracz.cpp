@@ -22,6 +22,8 @@ Gracz::~Gracz() {
 	wlasne = NULL;
 }
 
+//drukowanie ile pionkow pozostalo kazdemu graczowi
+
 void Gracz::drukuj() {
 	cout << "Gracz " << imie;
 		if (ileWlasnych == 0) {
@@ -34,6 +36,8 @@ void Gracz::drukuj() {
 		}
 		cout << endl;
 }
+
+//drukowanie miejsca, jakie zajal kazdy z graczy
 
 void Gracz::drukujMiejsce() {
 	cout << "Gracz " << imie << "miejsce " << miejsce << ": ";
@@ -86,6 +90,8 @@ void GraczOsoba::wczytajImie(int numerGracza) {
 	cin >> imie;
 }
 
+//po dodaniu pionek jest usuwany
+
 void Gracz::usunPionek(int numer) {
 	for (int i = numer + 1; i < ileWlasnych; i++) {
 		wlasne[i - 1] = wlasne[i];
@@ -96,6 +102,8 @@ void Gracz::usunPionek(int numer) {
 void Gracz::ustawLinieNaStole(LiniaNaStole *linia2) {
 	this->linia = linia2; //ustawiamy linie, zapamietujemy wskaznik do tej linii
 }
+
+//ruch gracza osoby 
 
 bool GraczOsoba::ruch(Zbior<int> pionkiPrzeciwnika) {
 	int numer;
@@ -142,6 +150,8 @@ void GraczKomputer::wczytajImie(int numerGracza) {
 	napis << "Komputer" << numerGracza;
 	imie = napis.str();
 }
+
+//ruch gracza komputera
 
 bool GraczKomputer::ruch(Zbior<int> pionkiPrzeciwnika) {
 	cout << "Ruch gracza " << imie << endl;
@@ -223,6 +233,8 @@ void Gracz::dobierzPionek(Pionek p) {
 	wlasne[ileWlasnych] = p;
 	ileWlasnych++;
 }
+
+//uzycie szablonu, ktory sortuje pionki i tworzy z nich zbior liczb
 
 Zbior<int> Gracz::dajMojeNumery() {
 	Zbior<int> wynikZbioru(7);

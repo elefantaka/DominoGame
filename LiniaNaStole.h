@@ -15,7 +15,7 @@ class Element {
 };
 
 class LiniaNaStole {
-	Element *glowa;
+	Element *glowa; //lista do linii na stole
 public:
 	LiniaNaStole();
 	bool dodajPoLewej(Pionek p);

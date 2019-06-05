@@ -18,6 +18,8 @@ Gra::Gra() {
 	}
 }
 
+//rozdawanie pionkow graczom
+
 void Gra::rozdajPionki() {
 	int ilePionkowNaPoczatku;
 	if (ileGraczy <= 4) {
@@ -38,6 +40,8 @@ void Gra::rozdajPionki() {
 	}
 	stoldd.dodajPozostalePionki(pp.pokazTablice(), ileStolDoDoboru);
 }
+
+//rozgrywka
 
 void Gra::rozgrywka() {
 	if (ileGraczy == 0) {
@@ -61,6 +65,8 @@ void Gra::rozgrywka() {
 		return;
 	}
 }
+
+//tworzenie graczy, wybor wariantu gry: komputer-komputer, osoba-osoba, komputer-osoba
 
 void Gra::tworzGraczy() {
 	int ileOsob;
@@ -87,6 +93,8 @@ void Gra::tworzGraczy() {
 		tabGraczy[i]->wczytajImie(i);
 	}
 }
+
+//wykladanie pionkow oraz przydzielenie miejsca, ktore zajal gracz
 
 void Gra::wykladaniePionkow() {
 	int ktoZaczyna = rand() % ileGraczy;

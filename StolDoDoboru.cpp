@@ -12,6 +12,8 @@ StolDoDoboru::StolDoDoboru() {
 	koniec = -1;
 }
 
+//dodawanie pionkow do stolu do doboru, dzieje sie to po wylosowaniu pionkow dla kazdewgo gracza
+
 void StolDoDoboru::dodajPozostalePionki(Pionek tabPionkow[], int ileDoStoluDoDoboru) {
 	if (ileDoStoluDoDoboru > 0) {
 		poczatek = 0;
@@ -46,6 +48,8 @@ bool StolDoDoboru::czyPustyStol() {
 		return false;  //stol nie jest pusty
 	}
 }
+
+//dawanie pionkow graczom, jesli traca kolejke
 
 Pionek StolDoDoboru::dajPionek() {
 	if (czyPustyStol() == true) {
